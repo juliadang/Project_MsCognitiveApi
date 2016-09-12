@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "06cc68caf6d7950bae2dbec92f938a9c49acc618"
+    "signature": "755fdbabc8c67ce018eabe4cf75ce55cd7a5f8df"
   },
   "compilationOptions": {
     "defines": [
@@ -23,8 +23,7 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
-          "bootstrap": "4.0.0-alpha3"
+          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final"
         },
         "runtime": {
           "Project_MsCognitiveApi.dll": {}
@@ -33,12 +32,6 @@
           "Project_MsCognitiveApi.dll": {}
         }
       },
-      "bootstrap/4.0.0-alpha3": {
-        "dependencies": {
-          "jQuery": "3.0.0.1"
-        }
-      },
-      "jQuery/3.0.0.1": {},
       "Microsoft.AspNetCore.Antiforgery/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "1.0.0",
@@ -3119,16 +3112,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "bootstrap/4.0.0-alpha3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-TH860GMwjEc4t0wKz0EBz/zwpypQ8VgqubhJ1Nyxr/K6lBIhVw3KKrLjaJdW9tJBTn8PiZ4cEaob2IMnn55ZBQ=="
-    },
-    "jQuery/3.0.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rEJ9hNt5n7pa+dr46MuiLI3er9LuZGsXO3h0dEX7OW9/PtTPKL7p3H3GgD99+8PgfFKj+/8GP7Kwc6v/irf4Ew=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",
