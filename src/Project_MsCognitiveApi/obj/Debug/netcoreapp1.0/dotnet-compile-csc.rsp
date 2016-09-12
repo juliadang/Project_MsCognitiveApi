@@ -184,4 +184,7 @@
 "C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Program.cs"
 "C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Startup.cs"
 "C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Controllers\HomeController.cs"
+"C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\ComputerVisionVM.cs"
+"C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\DataManager.cs"
 "C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\HomeIndexVM.cs"
+"C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\PictureInfo.cs"

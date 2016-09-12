@@ -18,6 +18,10 @@ namespace Project_MsCognitiveApi.Controllers
             return View();
         }
 
+        public IActionResult Webcam()
+        {
+            return View();
+        }
 
     }
 }
