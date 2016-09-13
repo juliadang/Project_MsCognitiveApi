@@ -1,14 +1,8 @@
-﻿//Webcam.set({
-//    width: auto,
-//    height: auto,
-//    image_format: 'jpeg',
-//    jpeg_quality: 90
-//});
+﻿var picture;
 
 function setup() {
     Webcam.attach('#my_camera');
 }
-var picture;
 function take_snapshot() {
     // take snapshot and get image data
     Webcam.snap(function (data_uri) {
@@ -56,9 +50,13 @@ function save_snapshot() {
         data: makeblob(picture)
     })
     .done(function (data) {
-        console.log(data);
+        showEmotion(data);
     })
     .fail(function () {
         alert("error");
     });
 };
+
+function showEmotion(data) {
+    $("#emotions").innerHTML = data.scores;
+}
