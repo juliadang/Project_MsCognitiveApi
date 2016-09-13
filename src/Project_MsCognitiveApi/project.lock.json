@@ -3,6 +3,15 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "bootstrap/4.0.0-alpha4": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "3.0.0.1"
+        }
+      },
+      "jQuery/3.0.0.1": {
+        "type": "package"
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -3716,6 +3725,41 @@
     }
   },
   "libraries": {
+    "bootstrap/4.0.0-alpha4": {
+      "sha512": "99fHJiJhPck6dZTq68yYJ+cOW3aZzj7wHpJ4eUmKrWi/bJHfQHQAqtlHHUhCzjsnawLLI0+aFgLb+Iyd5Mpv4g==",
+      "type": "package",
+      "path": "bootstrap/4.0.0-alpha4",
+      "files": [
+        "bootstrap.4.0.0-alpha4.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.css.map",
+        "content/Content/bootstrap.min.css",
+        "content/Content/bootstrap.min.css.map",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js"
+      ]
+    },
+    "jQuery/3.0.0.1": {
+      "sha512": "rEJ9hNt5n7pa+dr46MuiLI3er9LuZGsXO3h0dEX7OW9/PtTPKL7p3H3GgD99+8PgfFKj+/8GP7Kwc6v/irf4Ew==",
+      "type": "package",
+      "path": "jQuery/3.0.0.1",
+      "files": [
+        "Content/Scripts/jquery-3.0.0-vsdoc.js",
+        "Content/Scripts/jquery-3.0.0.js",
+        "Content/Scripts/jquery-3.0.0.min.js",
+        "Content/Scripts/jquery-3.0.0.min.map",
+        "Content/Scripts/jquery-3.0.0.slim.js",
+        "Content/Scripts/jquery-3.0.0.slim.min.js",
+        "Content/Scripts/jquery-3.0.0.slim.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-3.0.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jQuery.3.0.0.1.nupkg.sha512",
+        "jQuery.nuspec"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -9719,7 +9763,8 @@
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
       "Microsoft.AspNetCore.StaticFiles >= 1.0.0",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
-      "Microsoft.NETCore.App >= 1.0.0"
+      "Microsoft.NETCore.App >= 1.0.0",
+      "bootstrap >= 4.0.0-alpha4"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
