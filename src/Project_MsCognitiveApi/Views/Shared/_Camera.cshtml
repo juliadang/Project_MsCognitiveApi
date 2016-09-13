@@ -1,40 +1,32 @@
 ﻿<!doctype html>
-
+<link href="~/Styles/StyleSheet.css" rel="stylesheet" />
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Amazing Camera</title>
-    <style type="text/css">
-        body {
-            font-family: Helvetica, sans-serif;
-        }
-
-        h2, h3 {
-            margin-top: 0;
-        }
-
-        form {
-            margin-top: 15px;
-        }
-
-            form > input {
-                margin-right: 15px;
-            }
-
-        #results {
-            float: right;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid;
-            background: #ccc;
-        }
-    </style>
 </head>
 <body>
-    <div id="results">Your captured image will appear here...</div>
+    <script>
+        var apiKey = "5d8a62057a35480ea5ec622d72f25071";
+        var apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
+    </script>
+
+    <div id="results"><h1>Your captured image will appear here...</h1></div>
+
+    <div id="APIresults">
+        <h3 id="happiness">Happiness:</h3>
+        <h3 id="disgust">Disgust:</h3>
+        <h3 id="anger">Anger:</h3>
+        <h3 id="contempt">Contempt:</h3>
+        <h3 id="surprise">Surprise:</h3>
+        <h3 id="sadness">Sadness:</h3>
+        <h3 id="fear">Fear:</h3>
+        <h3 id="neutral">Neutral:</h3>
+        <input id="analyzeBtn" type="button" value="Analyze Picture" style="display:none" onClick="analyze_pic()">
+    </div>
+
 
     <h1>Amazing Camera</h1>
- 
 
     <div id="my_camera"></div>
 
@@ -44,12 +36,12 @@
 
     <!-- Configure a few settings and attach camera -->
     <script language="JavaScript">
-		Webcam.set({
-			width: 320,
-			height: 240,
-			image_format: 'jpeg',
-			jpeg_quality: 90
-		});
+        Webcam.set({
+            width: 320,
+            height: 240,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
     </script>
 
     <!-- A button for taking snaps -->
@@ -60,27 +52,61 @@
 
     <!-- Code to handle taking the snapshot and displaying it locally -->
     <script language="JavaScript">
-		function setup() {
-			Webcam.attach( '#my_camera' );
-		}
-		var picture;
-		function take_snapshot() {
-			// take snapshot and get image data
-			Webcam.snap( function(data_uri) {
-				// display results in page
-				document.getElementById('results').innerHTML =
+        function setup() {
+            Webcam.attach('#my_camera');
+        }
+        var picture;
+        function take_snapshot() {
+
+            // take snapshot and get image data
+            Webcam.snap(function (data_uri) {
+                // display results in page
+                document.getElementById('results').innerHTML =
 					'<h2>Here is your image:</h2>' +
 					'<img src="' + data_uri + '"/>';
-				picture = data_uri;
-			});
+                picture = data_uri;
+            });
+            document.getElementById("analyzeBtn").style.display = 'block';
 
-      
-		}
-		function save_snapshot() {
+        }
+        $('#analyzeBtn').click(function () {
+            //file: The file that will be sent to the api
+
+            CallAPI(picture, apiUrl, apiKey);
+        });
+
+        function analyze_pic() {
             //spara picture och skicka till api
-           // picture
+            // picture
+            //apiUrl: The base URL for the API. Find out what this is for other APIs via the API documentation
 
-		}
+        }
+
+        function CallAPI(picture, apiUrl, apiKey) {
+            $.ajax({
+                url: apiUrl,
+                beforeSend: function (xhrObj) {
+                    xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
+                },
+                type: "POST",
+                data: picture,
+                processData: false
+            })
+            .done(function (response) {
+                ProcessResult(response);
+            })
+            .fail(function (error) {
+                console.log(error.getAllResponseHeaders());
+            });
+        }
+
+        function ProcessResult(response) {
+            var data = JSON.stringify(response);
+            $("#response").text(data);
+        }
+
+
     </script>
 
 </body>
