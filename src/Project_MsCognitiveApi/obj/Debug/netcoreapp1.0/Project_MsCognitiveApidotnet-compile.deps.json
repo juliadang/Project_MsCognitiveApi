@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "59c43899672d68622b60199a5a5d736929b28434"
+    "signature": "127a55cd58064780d2661228ab04d9caa15672a7"
   },
   "compilationOptions": {
     "defines": [
@@ -23,12 +23,19 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final"
+          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
+          "bootstrap": "4.0.0-alpha4"
         },
         "compile": {
           "Project_MsCognitiveApi.dll": {}
         }
       },
+      "bootstrap/4.0.0-alpha4": {
+        "dependencies": {
+          "jQuery": "3.0.0.1"
+        }
+      },
+      "jQuery/3.0.0.1": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1"
@@ -2721,12 +2728,19 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final"
+          "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
+          "bootstrap": "4.0.0-alpha4"
         },
         "runtime": {
           "Project_MsCognitiveApi.dll": {}
         }
       },
+      "bootstrap/4.0.0-alpha4": {
+        "dependencies": {
+          "jQuery": "3.0.0.1"
+        }
+      },
+      "jQuery/3.0.0.1": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1"
@@ -5325,6 +5339,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "bootstrap/4.0.0-alpha4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-99fHJiJhPck6dZTq68yYJ+cOW3aZzj7wHpJ4eUmKrWi/bJHfQHQAqtlHHUhCzjsnawLLI0+aFgLb+Iyd5Mpv4g=="
+    },
+    "jQuery/3.0.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rEJ9hNt5n7pa+dr46MuiLI3er9LuZGsXO3h0dEX7OW9/PtTPKL7p3H3GgD99+8PgfFKj+/8GP7Kwc6v/irf4Ew=="
     },
     "Libuv/1.9.0": {
       "type": "package",
