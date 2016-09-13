@@ -10,12 +10,14 @@
         <div class="container-fluid">
             <ul id="navBtns" class="nav navbar-nav navbar-right">
                 <li id="HomeButton" class="none"><a id="headerStyle" href="/home/index"><b>Home</b></a></li>
-              
+
             </ul>
         </div>
     </nav>
     <div>
         @RenderBody()
     </div>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    @RenderSection("Scripts")
 </body>
 </html>
