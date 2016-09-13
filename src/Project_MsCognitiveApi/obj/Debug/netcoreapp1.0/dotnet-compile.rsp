@@ -1,5 +1,5 @@
---temp-output:C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\obj\Debug\netcoreapp1.0\
---out:C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\bin\Debug\netcoreapp1.0\Project_MsCognitiveApi.dll
+--temp-output:C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\bin\Debug\netcoreapp1.0\Project_MsCognitiveApi.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -184,11 +184,11 @@
 --reference:C:\Users\Administrator\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Administrator\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Administrator\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\obj\Debug\netcoreapp1.0\Project_MsCognitiveApidotnet-compile.deps.json",Project_MsCognitiveApi.deps.json
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Program.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Startup.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Controllers\HomeController.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\ComputerVisionVM.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\DataManager.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\HomeIndexVM.cs
-C:\Users\Administrator\Source\Repos\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\PictureInfo.cs
+--resource:"C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\obj\Debug\netcoreapp1.0\Project_MsCognitiveApidotnet-compile.deps.json",Project_MsCognitiveApi.deps.json
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Program.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Startup.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Controllers\HomeController.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\ComputerVisionVM.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\DataManager.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\HomeIndexVM.cs
+C:\Users\Administrator\Documents\Projects\Project_MsCognitiveApi\src\Project_MsCognitiveApi\Models\PictureInfo.cs
