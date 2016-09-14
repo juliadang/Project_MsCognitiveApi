@@ -50,7 +50,10 @@ function save_snapshot() {
         data: makeblob(picture)
     })
     .done(function (data) {
-        showEmotion(data);
+        console.log(data);
+        var emotions = data[0].scores;
+        showEmotion(emotions);
+        console.log(emotions);
     })
     .fail(function () {
         alert("error");
@@ -58,5 +61,11 @@ function save_snapshot() {
 };
 
 function showEmotion(data) {
-    $("#emotions").innerHTML = data.scores;
+    console.log(data);
+    if (data.happiness > 0.7) {
+
+        $("#emotions").html('JAG ÄR SÅ JÄVLA GLAD');
+    }
+    else
+        $("#emotions").html('JAG ÄR SÅ JÄVLA sur');
 }
