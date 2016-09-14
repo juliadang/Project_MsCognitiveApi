@@ -15,7 +15,10 @@ function take_snapshot() {
     Webcam.snap(function (data_uri) {
         // display results in page
         $('#results').html('<img src="' + data_uri + '"/>');
-        picture = data_uri;
+       picture = data_uri;
+        
+    
+       
     });
 
 
