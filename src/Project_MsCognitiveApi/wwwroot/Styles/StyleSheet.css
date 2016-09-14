@@ -18,13 +18,7 @@ form {
 #analyzeBtn {
     float: right;
 }
-#results {
-    float: right;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid;
-    background: #ccc;
-}
+
 #APIresults
 {
     float: right;       

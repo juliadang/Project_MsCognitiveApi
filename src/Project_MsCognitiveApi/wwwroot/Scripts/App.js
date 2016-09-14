@@ -2,14 +2,19 @@
 
 function setup() {
     Webcam.attach('#my_camera');
+
+    Webcam.set({
+        dest_width: 320,
+        dest_height: 240
+    });
 }
+
+
 function take_snapshot() {
     // take snapshot and get image data
     Webcam.snap(function (data_uri) {
         // display results in page
-        document.getElementById('results').innerHTML =
-            '<h2>Here is your image:</h2>' +
-            '<img src="' + data_uri + '"/>';
+        $('#results').html('<img src="' + data_uri + '"/>');
         picture = data_uri;
     });
 
@@ -50,10 +55,8 @@ function save_snapshot() {
         data: makeblob(picture)
     })
     .done(function (data) {
-        console.log(data);
         var emotions = data[0].scores;
         showEmotion(emotions);
-        console.log(emotions);
     })
     .fail(function () {
         alert("error");
@@ -61,11 +64,14 @@ function save_snapshot() {
 };
 
 function showEmotion(data) {
-    console.log(data);
-    if (data.happiness > 0.7) {
 
-        $("#emotions").html('JAG ÄR SÅ JÄVLA GLAD');
-    }
-    else
-        $("#emotions").html('JAG ÄR SÅ JÄVLA sur');
+    $('#Happiness').html(Math.round((data.happiness * 100) * 10) / 10 + ' %');
+    $('#Anger').html(Math.round((data.anger * 100) * 10) / 10 + ' %');
+    $('#Disgust').html(Math.round((data.disgust * 100) * 10) / 10 + ' %');
+    $('#Fear').html(Math.round((data.fear * 100) * 10) / 10 + ' %');
+    $('#Sadness').html(Math.round((data.sadness * 100) * 10) / 10 + ' %');
+    $('#Contempt').html(Math.round((data.contempt * 100) * 10) / 10 + ' %');
+    $('#Neutral').html(Math.round((data.neutral * 100) * 10) / 10 + ' %');
+    $('#Surprise').html(Math.round((data.surprise * 100) * 10) / 10 + ' %');
+
 }

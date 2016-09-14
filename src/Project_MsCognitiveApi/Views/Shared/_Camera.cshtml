@@ -20,15 +20,13 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="device-container">
-                    <div class="device-mockup iphone6_plus portrait white">
+                    <div class="device-mockup iphone6_plus landscape white">
                         <div class="device">
                             <div class="screen" id="my_camera">
-                                <p id="emotions"></p>
                             </div>
 
                             <div class="button" value="Access Camera" onClick="setup(); $(this).hide().next().show();"></div>
                             <div class="button" value="Take Snapshot" onClick="take_snapshot()" style="display:none"></div>
-
 
                             <!-- Captured image -->
                         </div>
@@ -38,10 +36,11 @@
             <div class="col-md-6">
                 <div class="device-container">
                     <div><input type="button" value="Save Snapshot" onClick="save_snapshot()"></div>
-                    <div id="results">Your captured image will appear here</div>
+                    <div class="row text-center col-md-6 col-md-offset-3" id="results">Your captured image will appear here</div>
                 </div>
             </div>
         </div>
+        <p id="emotions"></p>
     </div>
 </section>
 
