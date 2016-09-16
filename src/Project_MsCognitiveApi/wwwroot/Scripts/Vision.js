@@ -19,4 +19,6 @@ function initVision() {
 
 function vision(data) {
     $('#description').html(data.text)
+    $('#confidence').html('Confidence percentage: ' + Math.round((data.confidence * 100) * 10) / 10 + ' %')
+
 }
