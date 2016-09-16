@@ -44,7 +44,7 @@ function showEmotion(data) {
         $('#wow').html('You are really surprised. Did our app impress you that much?');
     }
     else if (contempt > 50) {
-        $('#wow').html('You are really contempteus.');
+        $('#wow').html('You are really contemptuous.');
     }
     else {
         $('#wow').html('Im sorry, we cant for certain tell how you are feeling');
