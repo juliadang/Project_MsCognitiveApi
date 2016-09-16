@@ -18,19 +18,15 @@ namespace Project_MsCognitiveApi.Controllers
             return View();
         }
 
-        public IActionResult Webcam()
+        public IActionResult Emotion()
+        {
+            return View();
+        }
+
+        public IActionResult Vision()
         {
             return View();
         }
 
     }
 }
-        //public async Task<ActionResult> GetComputerVisison(PictureInfo pictureInfo)
-        //{
-
-        //    string webapiurl = "";// här vill vi ha länken till api/
-        //    var client = new HttpClient();
-        //    var json = await client.GetStringAsync(webapiurl);
-            
-            
-        //}
