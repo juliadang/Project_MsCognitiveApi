@@ -1,31 +1,9 @@
-﻿<section id="features" class="features">
+﻿
+<section id="features" class="features">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-heading">
-                    <h2>Awesome Camera</h2>
-                    <p class="text-muted">Take awesome pictures with our camera!</p>
-                    <hr>
-                    <h3>Press the home button on the phone to snap a picture.</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="device-container">
-                    <div class="device-mockup iphone6_plus landscape white">
-                        <div class="device">
-                            <div class="screen" id="my_camera">
-                            </div>
+            @Html.Partial("_Camera")
 
-                            <div class="button" value="Access Camera" onClick="setup(); $(this).hide().next().show();"></div>
-                            <div class="button" value="Take Snapshot" onClick="take_snapshot()" style="display:none"></div>
-
-                            <!-- Captured image -->
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-md-4 pull-right">
                 <div class="device-container">
                     <div class="device-mockup samsung_tv">
@@ -35,12 +13,22 @@
                     </div>
                 </div>
                 <h3 id="description" style="padding-top: 10px; text-align: center"></h3>
-                <h3 id="confidence" style="padding-top: 10px; text-align: center" ></h3>
+                <h3 id="confidence" style="padding-top: 10px; text-align: center"></h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 col-md-offset-5 text-center">
+            <div class="col-md-2 col-md-offset-4 text-center">
+                <select class="form-control">
+                    <option value="one">One</option>
+                    <option value="two">Two</option>
+                    <option value="three">Three</option>
+                    <option value="four">Four</option>
+                    <option value="five">Five</option>
+                </select>
+            </div>
+            <div class="col-md-2">
                 <input type="button" class="btn btn-success" value="Save Snapshot" onClick="initVision()">
+
             </div>
         </div>
     </div>
