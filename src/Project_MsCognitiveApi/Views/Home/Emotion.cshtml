@@ -2,14 +2,7 @@
     <div class="container">
         <div class="row">
             @Html.Partial("_Camera")
-            <div class="col-md-4 pull-right">
-                <div class="device-container">
-                    <div class="device-mockup samsung_tv">
-                        <div class="device">
-                            <div class="screen" id="results"></div>
-                        </div>
-                    </div>
-                </div>
+            <div id="results"  class="col-md-4 pull-right">
             </div>
         </div>
         <div class="row">
@@ -70,7 +63,6 @@
         </table>
     </div>
 </div>
-<p id="hej"></p>
 
 @section Scripts {
     <script src="~/Scripts/Emotion.js"></script>
