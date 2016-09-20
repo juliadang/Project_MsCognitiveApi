@@ -1,4 +1,4 @@
-﻿
+﻿var textDetails;
 function initVision() {
     var params = {
         // Request parameters
@@ -10,15 +10,13 @@ function initVision() {
     sendToApi(url, key).then(function (result) {
         console.log(result);
         vision(result.description.captions[0]);
+        textDetails = result.description.captions[0].text;
+        sendToTranslate(textDetails);
     }, function (err) {
         alert('error');
     });
 }
 
-
-
 function vision(data) {
-    $('#description').html(data.text)
     $('#confidence').html('Confidence percentage: ' + Math.round((data.confidence * 100) * 10) / 10 + ' %')
-
 }

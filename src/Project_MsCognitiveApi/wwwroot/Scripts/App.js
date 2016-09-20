@@ -4,8 +4,8 @@ function setup() {
     Webcam.attach('#my_camera');
 
     Webcam.set({
-        dest_width: 355,
-        dest_height: 200
+        dest_width: 720,
+        dest_height: 480
     });
 }
 

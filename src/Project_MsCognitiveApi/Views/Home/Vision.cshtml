@@ -3,27 +3,21 @@
     <div class="container">
         <div class="row">
             @Html.Partial("_Camera")
-
-            <div class="col-md-4 pull-right">
-                <div class="device-container">
-                    <div class="device-mockup samsung_tv">
-                        <div class="device">
-                            <div class="screen" id="results"></div>
-                        </div>
-                    </div>
-                </div>
+            <div id="results" class="col-md-4 pull-right"></div>
+            
                 <h3 id="description" style="padding-top: 10px; text-align: center"></h3>
                 <h3 id="confidence" style="padding-top: 10px; text-align: center"></h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-2 col-md-offset-4 text-center">
-                <select class="form-control">
-                    <option value="one">One</option>
-                    <option value="two">Two</option>
-                    <option value="three">Three</option>
-                    <option value="four">Four</option>
-                    <option value="five">Five</option>
+                <select id="lang" class="form-control">
+                    <option value="sv">Svenska</option>
+                    <option value="en">Engelska</option>
+                    <option value="da">Dansk</option>
+                    <option value="no">Norsk</option>
+                    <option value="fi">Soumi</option>
+                    <option value="de">Deutsch</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -40,4 +34,5 @@
 
 @section Scripts {
     <script src="~/Scripts/Vision.js"></script>
+    <script src="~/Scripts/Translate.js"></script>
 }
