@@ -1,4 +1,4 @@
-﻿var picture;
+﻿var snapShot;
 
 function setup() {
     Webcam.attach('#my_camera');
@@ -12,14 +12,15 @@ function setup() {
 
 function take_snapshot() {
     // take snapshot and get image data
-    Webcam.snap(function (data_uri) {
+    Webcam.snap(function (picture) {
         // display results in page
-        $('#results').html('<img src="' + data_uri + '"/>');
-        picture = data_uri;
+        $('#results').html('<img src="' + picture + '"/>');
+        $('#hej').html('<img src="' + picture + '"/>');
+        snapShot = picture;
     });
 }
 
-makeblob = function (dataURL) {
+encodePicture = function (dataURL) {
     var BASE64_MARKER = ';base64,';
     if (dataURL.indexOf(BASE64_MARKER) == -1) {
         var parts = dataURL.split(',');
@@ -51,7 +52,7 @@ function sendToApi(url, key) {
                 xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', key);
             },
             type: 'POST',
-            data: makeblob(picture)
+            data: encodePicture(snapShot)
         })
     .done(function (data) {
         resolve(data);
