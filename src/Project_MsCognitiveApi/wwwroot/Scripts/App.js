@@ -4,15 +4,19 @@ function setup() {
     Webcam.attach('#my_camera');
 }
 
+function CancelPreview() {
+    Webcam.unfreeze();
+    $('#test').fadeOut('slow');
+};
 
 function take_snapshot() {
     // take snapshot and get image data
     Webcam.snap(function (picture) {
         // display results in page
-        $('#results').html('<img src="' + picture + '"/>');
-        $('#hej').html('<img src="' + picture + '"/>');
         snapShot = picture;
     });
+    Webcam.freeze();
+    $('#test').fadeIn('slow');
 }
 
 encodePicture = function (dataURL) {

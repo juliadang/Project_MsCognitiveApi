@@ -1,68 +1,21 @@
-﻿<section id="features" class="features">
-    <div class="container">
-        <div class="row">
-            @Html.Partial("_Camera")
-            <div class="col-md-4 pull-right">
-                @Html.Partial("_Picture")
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-5 text-center">
-                <input type="button" class="btn btn-success" value="Save Snapshot" onClick="initEmotion()">
-            </div>
-        </div>
-    </div>
-</section>
+﻿<div class="row">
+    @Html.Partial("_CameraInfoText")
+</div>
 
-<div class="container">
-    <div class="text-center">
-        <h2>Take a look at your emotions</h2>
-        <p id="wow"></p>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        @Html.Partial("_Camera")
     </div>
-    <div class="col-md-8 col-md-offset-2">
-        <table id="emotions" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Emotion</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Happiness</td>
-                    <td id="Happiness"></td>
-                </tr>
-                <tr>
-                    <td>Surprise</td>
-                    <td id="Surprise"></td>
-                </tr>
-                <tr>
-                    <td>Neutral</td>
-                    <td id="Neutral"></td>
-                </tr>
-                <tr>
-                    <td>Fear</td>
-                    <td id="Fear"></td>
-                </tr>
-                <tr>
-                    <td>Contempt</td>
-                    <td id="Contempt"></td>
-                </tr>
-                <tr>
-                    <td>Sadness</td>
-                    <td id="Sadness"></td>
-                </tr>
-                <tr>
-                    <td>Disgust</td>
-                    <td id="Disgust"></td>
-                </tr>
-                <tr>
-                    <td>Anger</td>
-                    <td id="Anger"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+</div>
+
+
+<div class="row col-md-4 col-md-offset-4 text-center">
+    <input type="button" class="btn btn-success" value="Analyze" onClick="initEmotion()">
+    <button class="btn btn-danger" onClick="CancelPreview()">Cancel</button>
+</div>
+
+<div id="test" class="row col-md-8 col-md-offset-2" style="display:none;">
+    @Html.Partial("_EmotionResult")
 </div>
 
 @section Scripts {
