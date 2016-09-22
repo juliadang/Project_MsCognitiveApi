@@ -2,6 +2,8 @@
 
 function setup() {
     Webcam.attach('#my_camera');
+
+    
 }
 
 function CancelPreview() {
@@ -14,6 +16,7 @@ function take_snapshot() {
     Webcam.snap(function (picture) {
         // display results in page
         snapShot = picture;
+       
     });
     Webcam.freeze();
     $('#test').fadeIn('slow');
