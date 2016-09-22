@@ -25,9 +25,25 @@ form {
 }
 
 #my_camera {
+
+    justify-content:center; 
+    height:240px; width:320px;
+
 }
 
 .row {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.screen{
+   margin-left:10%;
+
+}
+
+#confidence{
+
+}
+#description
+style="padding-top: 10px; text-align: center"></h3>
+    <h3 id="confidence" style="padding-top: 10px; text-align: center"></h3
