@@ -17,16 +17,19 @@ namespace Project_MsCognitiveApi.Controllers
         {
             return View();
         }
-
         public IActionResult Emotion()
         {
             return View();
         }
-
         public IActionResult Vision()
         {
             return View();
         }
+        public IActionResult FaceRecognition()
+        {
+            return View();
+        }
+
 
     }
 }
