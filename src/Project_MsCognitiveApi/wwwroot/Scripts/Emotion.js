@@ -6,7 +6,7 @@ function initEmotion() {
     sendToApi(url, key).then(function (result) {
         showEmotion(result[0].scores);
     }, function (err) {
-        alert('error ' + err);
+        alert('initemotionerror ' + err);
     });
 }
 

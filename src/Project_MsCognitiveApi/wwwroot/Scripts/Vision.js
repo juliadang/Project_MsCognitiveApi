@@ -13,7 +13,7 @@ function initVision() {
         textDetails = result.description.captions[0].text;
         sendToTranslate(textDetails);
     }, function (err) {
-        alert('error');
+        alert('visionerror');
     });
 }
 

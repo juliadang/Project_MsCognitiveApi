@@ -60,7 +60,7 @@ function sendToApi(url, key) {
         resolve(data);
     })
     .fail(function () {
-        reject('error');
+        reject('apperror');
     });
     });
 };
