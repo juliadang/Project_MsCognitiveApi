@@ -1,29 +1,61 @@
 ﻿
 function initFaceRecognition() {
+
+
     var key = 'fc54a3e2acc24cdb9a37e58f470e395f';
     var url = 'https://api.projectoxford.ai/face/v1.0/detect';
    
     sendToApi(url, key).then(function (result) {
         console.log(result);
+        var faceidvariabel = result[0].faceId;
+        console.log(faceidvariabel);
+    
+        
+        initIdentification(faceidvariabel);
 
     }, function (err) {
         alert('connectionerror ' + err);
     });
+    
 }
 
-
-
-
-function initIdentification() {
+function initIdentification(faceidvariabel) {
     var key = 'fc54a3e2acc24cdb9a37e58f470e395f';
+    var params = {
+        "personGroupId": "bestegruppen",
+        "faceIds": [
+            faceidvariabel
+
+        ],
+        "maxNumOfCandidatesReturned": 1,
+        "confidenceThreshold": 0.5
+    }
     var url2 = 'https://api.projectoxford.ai/face/v1.0/identify';
 
 
-
-    sendToApi(url2, key).then(function (result2) {
-        console.log(result2);
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: url2,
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader('Content-Type', 'application/json');
+                xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', key);
+            },
+            type: 'POST',
+            data: JSON.stringify(params),
+            dataType: "json"
+        })
+    .done(function (data) {
+        console.log(data);
+        resolve(data);
     })
-}
+    .fail(function () {
+        console.log("fail");
+        reject('apperror');
+    });
+    });
+
+
+};
 
 
 //$('#createpersongroupbutton').click(function createPersonGroup() {
