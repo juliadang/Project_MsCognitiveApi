@@ -45,8 +45,11 @@ function initIdentification(faceidvariabel) {
             dataType: "json"
         })
     .done(function (data) {
-        console.log(data);
+   
+        showPerson(data);
+      
         resolve(data);
+   
     })
     .fail(function () {
         console.log("fail");
@@ -57,6 +60,22 @@ function initIdentification(faceidvariabel) {
 
 };
 
+function showPerson(data) {
+   // console.log(data.candidates);
+    console.log(data[0].candidates);
+    if (data[0].personId == 'ca6fac49-f056-4515-8cb0-35aad093717b') {
+
+        console.log('hej paula');
+
+    }
+
+    else {
+        console.log('det är inte paula');
+    }
+
+    //funktion som visar vilken person som identifierats på bilden, 
+    //ta in personens id som parameter
+}
 
 //$('#createpersongroupbutton').click(function createPersonGroup() {
 //    var params = {
