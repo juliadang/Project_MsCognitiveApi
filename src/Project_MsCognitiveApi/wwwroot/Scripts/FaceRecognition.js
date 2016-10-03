@@ -4,19 +4,37 @@ function initFaceRecognition() {
 
     var key = 'fc54a3e2acc24cdb9a37e58f470e395f';
     var url = 'https://api.projectoxford.ai/face/v1.0/detect';
-   
+
     sendToApi(url, key).then(function (result) {
         console.log(result);
-        var faceidvariabel = result[0].faceId;
-        console.log(faceidvariabel);
-    
-        
-        initIdentification(faceidvariabel);
+
+
+        if (result.length !== 0) {
+            if (result[0].faceId !== null) {
+                var faceidvariabel = result[0].faceId;
+                initIdentification(faceidvariabel);
+
+            }
+        }
+
+            //if (result[0].faceId === null) {
+            //    $('#recognizedPerson').html('Hittar inget ansikte');
+            //}
+
+
+
+            //console.log(faceidvariabel);
+
+        else {
+            $('#recognizedPerson').html('Kunde inte hitta några ansikten');
+        }
+
+
 
     }, function (err) {
         alert('connectionerror ' + err);
     });
-    
+
 }
 
 function initIdentification(faceidvariabel) {
@@ -42,16 +60,20 @@ function initIdentification(faceidvariabel) {
             },
             type: 'POST',
             data: JSON.stringify(params),
-            dataType: "json"
+            dataType: "json",
+
+
         })
+
+
     .done(function (data) {
-   
+
         showPerson(data);
-      
+
         resolve(data);
-   
+
     })
-    .fail(function () {
+    .fail(function (data) {
         console.log("fail");
         reject('apperror');
     });
@@ -61,44 +83,70 @@ function initIdentification(faceidvariabel) {
 };
 
 function showPerson(data) {
-   // console.log(data.candidates);
-    console.log(data[0].candidates);
-    if (data[0].personId == 'ca6fac49-f056-4515-8cb0-35aad093717b') {
+    console.log(data);
+    if (data[0].candidates.length !== 0) {
 
-        console.log('hej paula');
 
-    }
 
-    else {
-        console.log('det är inte paula');
+        if (data[0].candidates[0].personId.length > 0) {
+            var personIdvariabel = data[0].candidates[0].personId;
+            console.log(personIdvariabel);
+            var personName = identifyPerson(personIdvariabel).toString();
+     
+            console.log(personName)
+
+           
+        
+            
+        } 
+
+    } else {
+        console.log('personen finns inte i group ID');
+        $('#recognizedPerson').html('Känner inte igen person');
+
     }
 
     //funktion som visar vilken person som identifierats på bilden, 
     //ta in personens id som parameter
 }
 
-//$('#createpersongroupbutton').click(function createPersonGroup() {
-//    var params = {
-//        "name": "1",
-//        "userData": "test data"
-//    }
+function identifyPerson(id) {
+    var key = 'fc54a3e2acc24cdb9a37e58f470e395f';
+    var url = 'https://api.projectoxford.ai/face/v1.0/persongroups/bestegruppen/persons/' + id;
 
-//    $.ajax({
-//        url: "https://api.projectoxford.ai/face/v1.0/persongroups/1",
-//        beforeSend: function (xhrObj) {
-//            // Request headers
-//            xhrObj.setRequestHeader("Content-Type", "application/json");
-//            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "fc54a3e2acc24cdb9a37e58f470e395f");
-//        },
-//        type: "PUT",
-//        dataType: "json",
-//        data: "{body}"
-//        // Request body
-//    })
-//    .done(function (data) {
-//        alert("success");
-//    })
-//    .fail(function () {
-//        alert("creategrouperror");
-//    });
-//});
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: url,
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader('Content-Type', 'application/json');
+                xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', key);
+            },
+            type: 'GET',
+          //  data: JSON.stringify(),
+            dataType: "json",
+
+
+        })
+
+
+    .done(function (result) {
+        $('#recognizedPerson').html('Det är ju' + result.name + '!!')
+
+        console.log(result.name);
+
+        resolve(result.name);
+ 
+
+    })
+    .fail(function (data) {
+        console.log("fail");
+        reject('identifypersonerror');
+    });
+    });
+
+
+};
+
+
+
+    
