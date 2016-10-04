@@ -28,9 +28,34 @@
     <link href="~/Styles/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1747430285520026',
+                xfbml: true,
+                version: 'v2.7'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <nav class="navbar navbar-inverse">
         <!-- Trigger/Open The Modal -->
         <button id="myBtn" class="btn btn-info" style="margin-top: 9px;">Login</button>
+
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <div id="status">
+        </div>
 
         <!-- The Modal -->
         <div id="myModal" class="modal" style="width: 500px">
