@@ -10,7 +10,6 @@ function initEmotion() {
     });
 }
 
-
 function showEmotion(data) {
 
     var happiness = ((data.happiness * 100) * 10) / 10;

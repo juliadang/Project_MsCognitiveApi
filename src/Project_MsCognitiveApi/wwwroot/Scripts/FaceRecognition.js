@@ -16,15 +16,6 @@ function initFaceRecognition() {
 
             }
         }
-
-            //if (result[0].faceId === null) {
-            //    $('#recognizedPerson').html('Hittar inget ansikte');
-            //}
-
-
-
-            //console.log(faceidvariabel);
-
         else {
             $('#recognizedPerson').html('Kunde inte hitta några ansikten');
         }
@@ -61,8 +52,6 @@ function initIdentification(faceidvariabel) {
             type: 'POST',
             data: JSON.stringify(params),
             dataType: "json",
-
-
         })
 
 
@@ -93,11 +82,7 @@ function showPerson(data) {
             console.log(personIdvariabel);
             var personName = identifyPerson(personIdvariabel).toString();
      
-            console.log(personName)
-
-           
-        
-            
+            console.log(personName)        
         } 
 
     } else {
@@ -122,7 +107,6 @@ function identifyPerson(id) {
                 xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', key);
             },
             type: 'GET',
-          //  data: JSON.stringify(),
             dataType: "json",
 
 
@@ -130,7 +114,7 @@ function identifyPerson(id) {
 
 
     .done(function (result) {
-        $('#recognizedPerson').html('Det är ju' + result.name + '!!')
+        $('#recognizedPerson').html('Det är ju ' + result.name + ' !!')
 
         console.log(result.name);
 
@@ -146,6 +130,49 @@ function identifyPerson(id) {
 
 
 };
+
+function addPerson() {
+    var key = 'fc54a3e2acc24cdb9a37e58f470e395f';
+    var url = 'https://api.projectoxford.ai/face/v1.0/persongroups/bestegruppen/persons';
+
+    var params = {
+        "name": "Person1",
+        "userData": "User-provided data attached to the person"
+    };
+
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: url,
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader('Content-Type', 'application/json');
+                xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', key);
+            },
+            type: 'POST',
+            data: params,
+            dataType: "json",
+
+
+        })
+
+
+    .done(function (result) {
+
+
+        console.log(result.name);
+
+        resolve(result.name);
+
+
+    })
+    .fail(function (data) {
+        console.log("fail");
+        reject('addpersonerror');
+    });
+    });
+
+
+
+}
 
 
 
