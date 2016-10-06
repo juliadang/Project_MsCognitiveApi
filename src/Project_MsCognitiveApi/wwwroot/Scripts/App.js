@@ -2,8 +2,6 @@
 
 function setup() {
     Webcam.attach('#my_camera');
-
-    
 }
 
 function CancelPreview() {

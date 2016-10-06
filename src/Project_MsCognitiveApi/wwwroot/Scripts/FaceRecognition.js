@@ -20,8 +20,6 @@ function initFaceRecognition() {
             $('#recognizedPerson').html('Kunde inte hitta några ansikten');
         }
 
-
-
     }, function (err) {
         alert('connectionerror ' + err);
     });
@@ -81,9 +79,9 @@ function showPerson(data) {
             var personIdvariabel = data[0].candidates[0].personId;
             console.log(personIdvariabel);
             var personName = identifyPerson(personIdvariabel).toString();
-     
-            console.log(personName)        
-        } 
+
+            console.log(personName)
+        }
 
     } else {
         console.log('personen finns inte i group ID');
@@ -119,7 +117,7 @@ function identifyPerson(id) {
         console.log(result.name);
 
         resolve(result.name);
- 
+
 
     })
     .fail(function (data) {
@@ -127,40 +125,94 @@ function identifyPerson(id) {
         reject('identifypersonerror');
     });
     });
-
-
 };
 
+function addPerson(name, description) {
+    $(function () {
+        var params = {
+            "name": name,
+            "userData": description
 
-$(function addPerson (name, description) {
-    var params = {
-        "name": name.toString(),
-        "userData": description.toString()
-       
-    };
+        };
 
-    $.ajax({
-        url: "https://api.projectoxford.ai/face/v1.0/persongroups/{personGroupId}/persons?" + $.param(params),
-        beforeSend: function (xhrObj) {
-            // Request headers
-            xhrObj.setRequestHeader("Content-Type", "application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "{subscription key}");
-        },
-        type: "POST",
-        // Request body
-        data: params,
-    })
-    .done(function (data) {
-        alert("success");
-    })
-    .fail(function () {
-        alert("error");
+        console.log(params);
+
+        $.ajax({
+            url: "https://api.projectoxford.ai/face/v1.0/persongroups/bestegruppen/persons",
+
+            beforeSend: function (xhrObj) {
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type", "application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", 'fc54a3e2acc24cdb9a37e58f470e395f');
+            },
+            type: "POST",
+            data: JSON.stringify(params),
+            dataType: "json"
+        })
+        .done(function (data) {
+            addFace(data.personId);
+            console.log(data.personId);
+            alert("success");
+        })
+        .fail(function () {
+            alert("error");
+        });
     });
-});
+}
+
+
+
+function addFace(data) {
+    var params = {
+        // Request parameters
+        
+    };
+    var key = '5d8a62057a35480ea5ec622d72f25071';
+    var url = 'https://api.projectoxford.ai/face/v1.0/persongroups/bestegruppen/persons/{data}/persistedFaces';
+    sendToApi(url, key).then(function (result) {
+        console.log(result);
+
+    }, function (err) {
+        alert('addfaceerror ' + err);
+    });
+}
 
 
 
 
 
 
-    
+//function addFace(personID) {
+//    var params = {
+
+//    }
+//    $.ajax({
+//        url: "https://api.projectoxford.ai/face/v1.0/persongroups/bestegruppen/persons/{data}/persistedFaces",
+        
+
+//        beforeSend: function (xhrObj) {
+//            // Request headers
+//            xhrObj.setRequestHeader("Content-Type", "application/json");
+//            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", 'fc54a3e2acc24cdb9a37e58f470e395f');
+//        },
+//        type: "POST",
+//        data: JSON.stringify(params),
+//        dataType: "json"
+//    })
+//       .done(function (data) {
+//           addFace(data);
+//           console.log(data);
+//           alert("success");
+//       })
+//       .fail(function () {
+//           alert("error");
+//       });
+
+
+//}
+
+
+
+
+
+
